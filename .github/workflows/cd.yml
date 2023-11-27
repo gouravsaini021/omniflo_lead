@@ -23,5 +23,8 @@ jobs:
         passphrase: ${{ secrets.SSHKEYPASSWORD }}
         port: 22
         script: |
-            whoami
-            ls -al
+            docker compose -f ${{ secrets.DOCKER_FILE_PATH }} down
+            docker rm --force container $(docker container ls -qa )
+            docker pull --no-cache ${{ secrets.IMAGE_NAME }}:latest
+            docker compose -f ${{ secrets.DOCKER_FILE_PATH }} up -d
+            
