@@ -2,9 +2,9 @@ name: build and deploy to dockerhub
 
 on:
   push:
-   branches: none #[ master ]
+   branches: [ master ]
   pull_request:
-    branches: none #[ master ]
+    branches: [ master ]
   workflow_dispatch:
       
 jobs:
