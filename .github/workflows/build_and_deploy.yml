@@ -17,5 +17,5 @@ jobs:
     - name: Build & Push Image
       run: |
         echo "${{ secrets.DOCKER_PWD }}" | docker login -u "gouravsaini" --password-stdin
-        docker image build -t gouravsaini/github-action-test-omniflo:latest --build-arg=FRAPPE_PATH=https://github.com/frappe/frappe --build-arg=FRAPPE_BRANCH=version-14 --build-arg=PYTHON_VERSION=3.10.5   --build-arg=NODE_VERSION=16.18.0   --build-arg=APPS_JSON_BASE64=${{ secrets.BASE_64 }} .
-        docker push gouravsaini/github-action-test-omniflo:latest
+        docker image build -t ${{ secrets.IMAGE_NAME }}:latest --build-arg=FRAPPE_PATH=https://github.com/frappe/frappe --build-arg=FRAPPE_BRANCH=version-14 --build-arg=PYTHON_VERSION=3.10.5   --build-arg=NODE_VERSION=16.18.0   --build-arg=APPS_JSON_BASE64=${{ secrets.BASE_64 }} .
+        docker push ${{ secrets.IMAGE_NAME }}:latest
