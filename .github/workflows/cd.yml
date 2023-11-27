@@ -6,6 +6,7 @@ on:
     workflows: ["build and deploy to dockerhub"]
     types:
       - completed
+  workflow_dispatch:
         
 jobs:
 
